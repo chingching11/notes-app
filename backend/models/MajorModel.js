@@ -5,7 +5,10 @@ const MajorSchema = new mongoose.Schema({
     majorName: {
         type: String,
         unique: true,
-        required: true,  
+        required: true,
+        trim: true,
+        lowercase: true
+        // collation: { locale: 'en', strength: 1 }  
     }, 
     notes: [
         {

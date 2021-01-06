@@ -12,7 +12,8 @@ router.get("/", async (req, res) => {
     }
 })
 
-// get a specific major showing all notes 
+
+// get a specific major by id,showing all notes 
 router.get("/:id", async (req, res) => {
     try {
         majorModel.findById({_id: req.params.id})
