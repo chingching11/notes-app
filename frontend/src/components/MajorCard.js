@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 function MajorCard(props) {
     return(
         <Link to={{
-                pathname:`/majors/${props.major}`,
-                majorName: props.major
+                pathname:`/majors/${props.id}`,
+                majorName: props.major,
+                majorId: props.id
             }}>
             <Card style={{ width: '14rem' }} className="mx-auto major-card" >
                 <Card.Img variant="top" src="logo192.png"/>

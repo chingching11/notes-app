@@ -10,8 +10,7 @@ function Home(){
         const getMajors = async () => {
             try {
                 const response = await axios (`http://localhost:8000/majors`)
-                const majorsData = response.data.map((d) => {return d.majorName})
-                setMajors(majorsData)
+                setMajors(response.data)
                 
             }catch (err) {
                 console.log(err);
@@ -23,7 +22,7 @@ function Home(){
     const majorCards = majors.map((m) => {
         return (
                 <Col xs={12} sm={6} md={4} lg={3}>
-                    <MajorCard major={m} />
+                    <MajorCard major={m.majorName} id={m._id} />
                 </Col>           
         )
     })
