@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function MajorCard(props) {
     return(
         <Link to={{
-                pathname:`/majors/${props.major}`,
+                pathname:`/majors/${props.id}`,
                 majorName: props.major,
                 majorId: props.id
             }}>
