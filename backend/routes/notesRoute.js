@@ -15,7 +15,17 @@ router.get('/', async (req, res) => {
 
 // get a specific note
 router.get('/:id', (req,res) => {
-    const id = req.params['id']
+    try {
+        noteModel.findById({_id: req.params.id})
+            .populate("notes")
+            .then((major) => {
+                res.send(major)
+            }).catch((err) => {
+                res.send(err)
+            })
+    } catch (err){
+        res.status(500).send(err)
+    }
 })
 
 // update a note

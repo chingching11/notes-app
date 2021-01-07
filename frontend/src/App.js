@@ -9,7 +9,7 @@ import CreateNote from "./pages/CreateNote"
 import ListOfNotes from "./pages/ListOfNotes"
 import './App.css';
 import CreateMajor from "./pages/CreateMajor"
-import SampleNote from "./pages/SampleNote"
+import NotePage from "./pages/NotePage"
 
 function App() {
   return (
@@ -20,11 +20,11 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/majors" exact component={Major}/>
             <Route path="/majors/:majorId" component={ListOfNotes} />
+            <Route path="/notes/:noteId" component={NotePage} />
             <Route path="/profile" component={UserProfile}/>
             <Route path="/login" component={Login} />
             <Route path="/createNote" component = {CreateNote} />
             <Route path="/createNewMajor" component={CreateMajor} />
-            <Route path="/sampleNote" component={SampleNote} />
           </Switch>
         </BrowserRouter>
     </div>
