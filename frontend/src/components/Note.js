@@ -1,11 +1,19 @@
 import React from "react"
-import ReactHtmlParser from 'react-html-parser'; //parse html element to react 
+import DOMPurify from 'dompurify';
+
 
 function Note(props){
+
+    const createMarkup = (html) => {
+        return  {
+          __html: DOMPurify.sanitize(html)
+        }
+      }
     return(
         <div>
             <h3>{props.title}</h3>
-            {ReactHtmlParser(props.body)}
+            <div  dangerouslySetInnerHTML={createMarkup(props.body)} />
+            
         </div>
     )
 }
