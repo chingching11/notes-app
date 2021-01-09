@@ -27,6 +27,7 @@ function ListOfSubjects(props){
             <NoteList noteName={n.noteName}  index={index} id={n._id}/>
         )
     })
+
     return(
         <Container>
             <h1>{majorName}</h1>
@@ -34,7 +35,7 @@ function ListOfSubjects(props){
                 {listNotes}
             </ListGroup>
             <br></br>
-            <Button variant="info" href="/createNewSubject"> Create New Note</Button>
+            <Button variant="info" href="/createNote"> Create New Note</Button>
         </Container>
     )
 }
