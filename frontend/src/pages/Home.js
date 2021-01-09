@@ -11,7 +11,6 @@ function Home(){
             try {
                 const response = await axios (`http://localhost:8000/majors`)
                 setMajors(response.data)
-                
             }catch (err) {
                 console.log(err);
             }

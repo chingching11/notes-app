@@ -1,5 +1,5 @@
 import React , { useState } from "react"
-import Axios from "axios"
+import axios from "axios"
 import { Button, Container, Form } from "react-bootstrap";
 import InputGroup from "../components/InputGroup" 
 
@@ -10,7 +10,7 @@ function CreateSubject(){
         const url = "http://localhost:8000/majors" 
         const userInputData = {majorName: majorName}
         console.log(majorName)
-        Axios.post(url, userInputData)  // post request to api
+        axios.post(url, userInputData)  // post request to api
                 .then(res => console.log(res))
                 .catch(err => console.log(err)) 
     }

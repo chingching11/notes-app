@@ -6,7 +6,6 @@ function MajorCard(props) {
     return(
         <Link to={{
                 pathname:`/majors/${props.id}`,
-                majorName: props.major,
                 majorId: props.id
             }}>
             <Card style={{ width: '14rem' }} className="mx-auto major-card" >

@@ -11,14 +11,13 @@ function NotePage(props){
         const getNote = async () => {
             try {
                 const response = await axios (`http://localhost:8000/notes/${props.match.params.noteId}`)
-                setNote(response.data)  
-                console.log(response.data.noteDetail)
+                setNote(response.data)
             }catch (err) {
                 console.log(err);
             }
         }
         getNote();
-    }, [note, props.match.params.noteId ])
+    }, [props.match.params.noteId])
     return(
         <Container>
             <h1> Note Page</h1>

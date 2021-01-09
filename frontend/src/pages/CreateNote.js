@@ -4,6 +4,7 @@ import NoteCKEditor from "../components/NoteCKEditor"
 import { Button, Form } from 'react-bootstrap'
 import axios from "axios"
 import InputGroup from "../components/InputGroup"
+import SelectOption from "../components/SelectOption"
 
 function CreateNote(){
 
@@ -17,9 +18,7 @@ function CreateNote(){
         const getMajors = async () => {
             try {
                 const response = await axios (`http://localhost:8000/majors`)
-                setMajors(response.data)
-                // setMajorName(response.data[0].majorName)
-                
+                setMajors(response.data)             
             }catch (err) {
                 console.log(err);
             }
@@ -43,20 +42,10 @@ function CreateNote(){
     return(
         <Container>
         <Form>
-            <Form.Group controlId="exampleForm.ControlSelect1">
-                <Form.Label>select major</Form.Label>
-                <Form.Control as="select" onChange={(e) => {setMajorName(e.target.value)}}>
-                    <option></option>
-                    {majorsOptions}
-                </Form.Control>
-            </Form.Group>  
+            <SelectOption label="Select major" setValue={setMajorName} options={majorsOptions} />
             <InputGroup label="Enter note name" setInput={setNoteName} />
         </Form>
-        <NoteCKEditor setText={setNoteDetail} />
-            
-            <h1>{majorName}</h1>
-            <p>{noteName}</p>
-
+            <NoteCKEditor setText={setNoteDetail} />
             <Button variant="outline-info" type="submit" onClick={sendData} href="/">Save</Button>
         </Container>
     )
