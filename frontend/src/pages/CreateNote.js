@@ -4,6 +4,7 @@ import NoteCKEditor from "../components/NoteCKEditor"
 import { Button, Form } from 'react-bootstrap'
 import axios from "axios"
 import InputGroup from "../components/InputGroup"
+import SelectOption from "../components/SelectOption"
 
 function CreateNote(){
 
@@ -41,13 +42,7 @@ function CreateNote(){
     return(
         <Container>
         <Form>
-            <Form.Group>
-                <Form.Label>Select major</Form.Label>
-                <Form.Control as="select" onChange={(e) => {setMajorName(e.target.value)}}>
-                    <option></option>
-                    {majorsOptions}
-                </Form.Control>
-            </Form.Group>  
+            <SelectOption label="Select major" setValue={setMajorName} options={majorsOptions} />
             <InputGroup label="Enter note name" setInput={setNoteName} />
         </Form>
             <NoteCKEditor setText={setNoteDetail} />
