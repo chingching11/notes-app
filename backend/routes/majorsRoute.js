@@ -21,7 +21,7 @@ router.get("/:id", async (req, res) => {
             .then((major) => {
                 res.send(major)
             }).catch((err) => {
-                res.send(err)
+                res.status(404).send(err)
             })
     } catch (err){
         res.status(500).send(err)
@@ -33,7 +33,6 @@ router.post('/', async (req, res) => {
     const major = new majorModel({
         majorName: req.body.majorName
     })
-    // console.log(req.body.majorName)
     try {
         await major.save()
         res.send(major)
