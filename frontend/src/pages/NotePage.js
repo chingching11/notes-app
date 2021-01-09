@@ -17,7 +17,7 @@ function NotePage(props){
             }
         }
         getNote();
-    }, [])
+    }, [props.match.params.noteId])
     return(
         <Container>
             <h1> Note Page</h1>
