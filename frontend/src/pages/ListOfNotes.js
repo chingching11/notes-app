@@ -20,7 +20,7 @@ function ListOfSubjects(props){
             }
         }
         getNotesInfo();
-    }, [notes, majorName, props.match.params.majorId])
+    }, [])
 
     const listNotes = notes.map((n, index) => {
         return (
