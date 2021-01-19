@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import MajorCard from '../components/MajorCard'
-import {Container, Button, Col, Row} from 'react-bootstrap'
+import {Container, Col, Row } from 'react-bootstrap'
 import axios from "axios"
+import Btn from "../components/Btn"
 
 function Home(){
     const [majors, setMajors] = useState([])
@@ -15,7 +16,7 @@ function Home(){
                 console.log(err);
             }
         }
-        getMajors();
+        getMajors()
     }, [])
 
     const majorCards = majors.map((m) => {
@@ -25,6 +26,7 @@ function Home(){
                 </Col>           
         )
     })
+
     return(
         <Container>
             <h1 className="Page-header"> Majors </h1>
@@ -34,7 +36,8 @@ function Home(){
                 </Row>
 
                 <br></br>
-                <Button variant="info" href="/createNewMajor"> Add a Major</Button>
+
+                <Btn notRedirect={true} link="/createNewMajor" label="Create New Major" />
             </Container>
             
         </Container>

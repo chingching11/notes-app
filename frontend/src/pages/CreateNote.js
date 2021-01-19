@@ -5,6 +5,7 @@ import { Button, Form } from 'react-bootstrap'
 import axios from "axios"
 import InputGroup from "../components/InputGroup"
 import SelectOption from "../components/SelectOption"
+import RequireAuth from "../components/RequireAuth"
 
 function CreateNote(){
 
@@ -51,4 +52,4 @@ function CreateNote(){
     )
 }
 
-export default CreateNote;
+export default RequireAuth(CreateNote)

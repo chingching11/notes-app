@@ -1,16 +1,14 @@
 import React from "react"
-import { Redirect } from "react-router-dom"
-import { Button, Container, ListGroup } from "react-bootstrap";
+import { Container, ListGroup } from "react-bootstrap";
 import NoteList from "../components/NoteList"
 import axios from "axios"
 import { useEffect, useState } from "react";
+import Btn from "../components/Btn"
 
 function ListOfSubjects(props){
     
     const [notes, setNotes] = useState([])
     const [majorName, setMajorName] = useState("")
-    const [errorStatusCode, setErrorStatusCode ] = useState('');
-
     useEffect(() => {
         // get all majors from backend api
         const getNotesInfo = async () => {
@@ -19,8 +17,7 @@ function ListOfSubjects(props){
                 setNotes(response.data.notes)  
                 setMajorName(response.data.majorName)   
             }catch (err) {
-                console.log(err)
-                setErrorStatusCode('404')
+                console.log(err);
             }
         }
         getNotesInfo();
@@ -32,10 +29,6 @@ function ListOfSubjects(props){
         )
     })
 
-    if(errorStatusCode === '404') {
-        return <Redirect to={{pathname: "/NotFound"}} />
-    } 
-
     return(
         <Container>
             <h1>{majorName}</h1>
@@ -43,7 +36,7 @@ function ListOfSubjects(props){
                 {listNotes}
             </ListGroup>
             <br></br>
-            <Button variant="info" href="/createNote"> Create New Note</Button>
+            <Btn notRedirect={true} link="/createNote" label="Create New Note" />
         </Container>
     )
 }

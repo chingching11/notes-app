@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router();
 const noteModel = require('../models/NoteModel')
 const majorModel = require('../models/MajorModel')
+const auth = require("../authenticateToken")
 
 // get all notes
 router.get('/', async (req, res) => {
@@ -21,7 +22,7 @@ router.get('/:id', (req,res) => {
             .then((major) => {
                 res.send(major)
             }).catch((err) => {
-                res.status(404).send(err)
+                res.send(err)
             })
     } catch (err){
         res.status(500).send(err)
@@ -34,7 +35,7 @@ router.patch('/:id', (req, res) => {
 })
 
 // create a new note
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     const note = new noteModel({
         noteName: req.body.noteName,
         noteDetail: req.body.noteDetail,
@@ -64,8 +65,9 @@ router.post('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const note = await noteModel.findByIdAndDelete(req.params.id)
-    
-        if (!note) res.status(404).send("No note found")
+        if (!note) {
+            res.status(404).send("No note found")
+        }
         res.status(200).send()
       } catch (err) {
         res.status(500).send(err)

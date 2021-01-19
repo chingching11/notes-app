@@ -1,6 +1,6 @@
 import React from "react"
 import Header from "./components/Header"
-import { Redirect, BrowserRouter, Switch, Route} from "react-router-dom"
+import { BrowserRouter, Switch, Route} from "react-router-dom"
 import Major from "./pages/Major"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
@@ -10,6 +10,7 @@ import ListOfNotes from "./pages/ListOfNotes"
 import './App.css';
 import CreateMajor from "./pages/CreateMajor"
 import NotePage from "./pages/NotePage"
+import RequireAuth from "./components/RequireAuth"
 import NotFound from "./components/NotFound"
 
 function App() {
@@ -24,10 +25,10 @@ function App() {
             <Route path="/notes/:noteId" component={NotePage} />
             <Route path="/profile" component={UserProfile}/>
             <Route path="/login" component={Login} />
-            <Route path="/createNote" component = {CreateNote} />
-            <Route path="/createNewMajor" component={CreateMajor} />
-            <Route path="/NotFound" component={NotFound} />
-            <Redirect to="NotFound" />
+            {/* <ProtectedRoute path="/createNote" isAuthenticated={authenticated} component={CreateNote}/> */}
+            <Route path="/createNote"  component={CreateNote} />
+            <Route path="/createNewMajor" component={RequireAuth(CreateMajor)} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </BrowserRouter>
     </div>

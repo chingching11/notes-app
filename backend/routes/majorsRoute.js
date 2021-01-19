@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router();
 const majorModel = require('../models/MajorModel')
+const auth = require("../authenticateToken")
 
 // get all lists of majors
 router.get("/", async (req, res) => {
@@ -21,7 +22,7 @@ router.get("/:id", async (req, res) => {
             .then((major) => {
                 res.send(major)
             }).catch((err) => {
-                res.status(404).send(err)
+                res.send(err)
             })
     } catch (err){
         res.status(500).send(err)
@@ -29,10 +30,11 @@ router.get("/:id", async (req, res) => {
 })
 
 //create a new major
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     const major = new majorModel({
         majorName: req.body.majorName
     })
+    // console.log(req.body.majorName)
     try {
         await major.save()
         res.send(major)
