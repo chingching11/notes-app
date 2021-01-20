@@ -5,7 +5,7 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 import Btn from "../components/Btn"
 
-function ListOfSubjects(props){
+const ListOfSubjects = (props) => {
     
     const [notes, setNotes] = useState([])
     const [majorName, setMajorName] = useState("")
@@ -25,7 +25,7 @@ function ListOfSubjects(props){
 
     const listNotes = notes.map((n, index) => {
         return (
-            <NoteList noteName={n.noteName}  index={index} id={n._id}/>
+            <NoteList noteName={n.noteName}  index={index} id={n._id} />
         )
     })
 

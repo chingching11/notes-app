@@ -3,14 +3,14 @@ import axios from "axios"
 import { Button, Container, Form } from "react-bootstrap";
 import InputGroup from "../components/InputGroup" 
 
-function CreateSubject(){
+const CreateSubject = () => {
     const [majorName, setMajorName] = useState("")
+    const [imgUrl, setImgUrl] = useState("")
     
     const sendData = () => {
         const url = "http://localhost:8000/majors" 
-        const userInputData = {majorName: majorName}
-        console.log(majorName)
-        axios.post(url, userInputData)  // post request to api
+        const userInputData = {majorName: majorName, imgUrl: imgUrl}
+        axios.post(url, userInputData, { withCredentials: true})  // post request to api
                 .then(res => console.log(res))
                 .catch(err => console.log(err)) 
     }
@@ -22,6 +22,11 @@ function CreateSubject(){
                     label="Major Name: "
                     placeholder = "Enter major name"
                     setInput = {setMajorName}
+                />
+                <InputGroup 
+                    label="img url: "
+                    placeholder = "Enter image url"
+                    setInput = {setImgUrl}
                 />
             <Button variant="outline-info" type="submit" onClick={sendData} href="/">Add</Button>
             </Form>

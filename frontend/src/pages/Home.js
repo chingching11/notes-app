@@ -4,7 +4,7 @@ import {Container, Col, Row } from 'react-bootstrap'
 import axios from "axios"
 import Btn from "../components/Btn"
 
-function Home(){
+const Home = () => {
     const [majors, setMajors] = useState([])
     useEffect(() => {
         // get all majors from backend api
@@ -20,9 +20,10 @@ function Home(){
     }, [])
 
     const majorCards = majors.map((m) => {
+        if(m.imgUrl==='') m.imgUrl='logo192.png'
         return (
                 <Col xs={12} sm={6} md={4} lg={3}>
-                    <MajorCard major={m.majorName} id={m._id} />
+                    <MajorCard major={m.majorName} imgUrl={m.imgUrl} id={m._id} />
                 </Col>           
         )
     })

@@ -1,9 +1,7 @@
 import React from "react"
 import DOMPurify from 'dompurify';
 
-
-function Note(props){
-
+const Note = (props) => {
     const createMarkup = (html) => {
         return  {
           __html: DOMPurify.sanitize(html)
@@ -12,8 +10,7 @@ function Note(props){
     return(
         <div>
             <h3>{props.title}</h3>
-            <div  dangerouslySetInnerHTML={createMarkup(props.body)} />
-            
+            <div  dangerouslySetInnerHTML={createMarkup(props.body)} />           
         </div>
     )
 }

@@ -9,11 +9,7 @@ const NoteSchema = new mongoose.Schema({
     },
     noteDetail: {
         type: String
-    },
-    createdAt: {
-        type: Date,
-    },
-
+    }
 })
 
 const Note = mongoose.model("Note", NoteSchema)

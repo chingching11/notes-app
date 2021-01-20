@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 
-function Header(){
+const Header = () => {
     return(
         <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="/">
@@ -21,9 +21,6 @@ function Header(){
                 <Nav className="ml-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/createNote">Create Note</Nav.Link>
-                    <Nav.Link href="/majors">Majors</Nav.Link>
-                    <Nav.Link href="/profile">Profile</Nav.Link>
-                    
                 </Nav>                
                 <Button variant="info" href="/login">Log in</Button>
             </Navbar.Collapse>

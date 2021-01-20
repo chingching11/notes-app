@@ -3,7 +3,7 @@ import { Container, Form, Button } from 'react-bootstrap';
 import InputGroup from "../components/InputGroup"
 import axios from "axios"
 
-function Login(){
+const Login = () => {
 
     const [username, setUername] = useState("")
     const [password, setPassword] = useState("")
