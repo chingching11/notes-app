@@ -7,7 +7,7 @@ import InputGroup from "../components/InputGroup"
 import SelectOption from "../components/SelectOption"
 import RequireAuth from "../components/RequireAuth"
 
-function CreateNote(){
+const CreateNote = () => {
 
     const [majorName, setMajorName] = useState("")
     const [noteName, setNoteName] = useState("")
@@ -36,16 +36,16 @@ function CreateNote(){
     const sendData = () => {
         const url = "http://localhost:8000/notes" 
         const userInputData = {majorName: majorName, noteName: noteName, noteDetail: noteDetail}
-        axios.post(url, userInputData)  // post request to api
+        axios.post(url, userInputData, { withCredentials: true })  // post request to api
                 .then(res => console.log(res))
                 .catch(err => console.log(err)) 
     }
     return(
         <Container>
-        <Form>
-            <SelectOption label="Select major" setValue={setMajorName} options={majorsOptions} />
-            <InputGroup label="Enter note name" setInput={setNoteName} />
-        </Form>
+            <Form>
+                <SelectOption label="Select major" setValue={setMajorName} options={majorsOptions} />
+                <InputGroup label="Enter note name" setInput={setNoteName} />
+            </Form>
             <NoteCKEditor setText={setNoteDetail} />
             <Button variant="outline-info" type="submit" onClick={sendData} href="/">Save</Button>
         </Container>

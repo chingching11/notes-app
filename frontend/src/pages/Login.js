@@ -3,7 +3,7 @@ import { Container, Form, Button } from 'react-bootstrap';
 import InputGroup from "../components/InputGroup"
 import axios from "axios"
 
-function Login(){
+const Login = () => {
 
     const [username, setUername] = useState("")
     const [password, setPassword] = useState("")
@@ -46,8 +46,6 @@ function Login(){
                 />
                 <Button variant="info" type="submit"> Login </Button>
             </Form>
-            <p className="text-muted"> Want to be a Nerd?</p>
-            <Button variant="outline-info" href="/signUp">Create New Account</Button>
         </Container>
     )
 }
