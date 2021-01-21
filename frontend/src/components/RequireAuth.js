@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from "axios"
 
-function RequireAuth(ComponentToProtect) {
+const RequireAuth = (ComponentToProtect) => {
   return class extends Component {
     constructor(props) {
       super(props)
@@ -32,17 +32,12 @@ function RequireAuth(ComponentToProtect) {
         return null
       }
       if (redirect) {
-        if(this.props.notRedirect){
-          
-          return null
-          
+        if(this.props.notRedirect){         
+          return null         
         }
-        return <Redirect to="*" />
-          
+        return <Redirect to="*" />         
       }
-
-      return <ComponentToProtect {...this.props} />;
-    
+      return <ComponentToProtect {...this.props} />;   
     }
   }
 }

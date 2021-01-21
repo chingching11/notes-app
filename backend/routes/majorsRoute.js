@@ -32,7 +32,8 @@ router.get("/:id", async (req, res) => {
 //create a new major
 router.post('/', auth, async (req, res) => {
     const major = new majorModel({
-        majorName: req.body.majorName
+        majorName: req.body.majorName,
+        imgUrl: req.body.imgUrl
     })
     // console.log(req.body.majorName)
     try {

@@ -1,7 +1,7 @@
 import React from "react"
 import { Container } from "react-bootstrap";
 
-function NotFound() {
+const NotFound = () => {
     return(
         <Container>
             <h1> sorry not found </h1>

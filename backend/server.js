@@ -17,7 +17,7 @@ app.use(cookieParser())
 //MongoDB connection
 mongoose.connect(
     process.env.DB_CONNECTION, 
-    {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+    {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify:false})
 
 //Import routes
 const majorsRoute = require('./routes/majorsRoute')

@@ -1,15 +1,17 @@
 import React from 'react'
 import {ListGroup} from "react-bootstrap"
 import { Link } from 'react-router-dom';
+import Menu from './Menu'
 
-function NoteList(props){
-    return(
-        <Link to={{
-            pathname:`/notes/${props.id}`,
-            majorId: props.id
-        }}>
-            <ListGroup.Item key={props.index}> {props.noteName} </ListGroup.Item>
-        </Link>
+const NoteList = (props) => {
+    return(    
+        <ListGroup.Item key={props.index}> 
+            <Link to={{
+                pathname:`/notes/${props.id}`,
+                majorId: props.id
+            }}> {props.noteName} </Link>  
+            <Menu id={props.id} notRedirect={true}/>
+        </ListGroup.Item>
     )
 }
 

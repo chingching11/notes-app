@@ -10,6 +10,9 @@ const MajorSchema = new mongoose.Schema({
         trim: true,
         uniqueCaseInsensitive: true
     }, 
+    imgUrl: {
+        type: String
+    },
     notes: [
         {
             type: mongoose.Schema.Types.ObjectId, 
