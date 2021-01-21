@@ -46,8 +46,6 @@ const Login = () => {
                 />
                 <Button variant="info" type="submit"> Login </Button>
             </Form>
-            <p className="text-muted"> Want to be a Nerd?</p>
-            <Button variant="outline-info" href="/signUp">Create New Account</Button>
         </Container>
     )
 }

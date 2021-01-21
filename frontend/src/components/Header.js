@@ -1,11 +1,10 @@
 import React from "react"
 import Navbar from 'react-bootstrap/Navbar'
-import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 
 const Header = () => {
     return(
-        <Navbar bg="dark" variant="dark">
+        <Navbar className="container navbar-custom">
             <Navbar.Brand href="/">
             {/* <img
                 alt=""
@@ -22,7 +21,6 @@ const Header = () => {
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/createNote">Create Note</Nav.Link>
                 </Nav>                
-                <Button variant="info" href="/login">Log in</Button>
             </Navbar.Collapse>
         </Navbar>
     )

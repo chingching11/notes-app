@@ -11,11 +11,15 @@ import NotePage from "./pages/NotePage"
 import RequireAuth from "./components/RequireAuth"
 import NotFound from "./components/NotFound"
 import EditNote from "./pages/EditNote"
+import { Container } from "react-bootstrap"
 
 function App() {
   return (
     <div>
         <BrowserRouter>
+          {/* <Container className="glass-container"> */}
+
+          
           <Header/>
           <Switch>
             <Route path="/" exact component={Home} />
@@ -28,6 +32,7 @@ function App() {
             <Route path="/editNote/:noteId" component={EditNote} />
             <Route path="*" component={NotFound} />
           </Switch>
+          {/* </Container> */}
         </BrowserRouter>
     </div>
     

@@ -22,7 +22,7 @@ const Home = () => {
     const majorCards = majors.map((m) => {
         if(m.imgUrl==='') m.imgUrl='logo192.png'
         return (
-                <Col xs={12} sm={6} md={4} lg={3}>
+                <Col xs={12} sm={6} md={6} lg={4} xl={3}>
                     <MajorCard major={m.majorName} imgUrl={m.imgUrl} id={m._id} />
                 </Col>           
         )
@@ -30,17 +30,15 @@ const Home = () => {
 
     return(
         <Container>
-            <h1 className="Page-header"> Majors </h1>
-            <Container>
+            <div className="glass-container">
+                <h1 className="Page-header"> Majors </h1>
                 <Row className="text-center">
                     {majorCards}
                 </Row>
-
                 <br></br>
-
-                <Btn notRedirect={true} link="/createNewMajor" label="Create New Major" />
-            </Container>
-            
+            </div>   
+            <br></br>
+            <Btn notRedirect={true} link="/createNewMajor" label="Create New Major" />
         </Container>
     )
 }

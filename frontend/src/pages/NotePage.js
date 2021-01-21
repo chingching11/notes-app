@@ -21,11 +21,8 @@ function NotePage(props){
     }, [props.match.params.noteId])
     return(
         <Container>
-            <h1> Note Page</h1>
-            <br></br>
             <Note title={note.noteName} body={note.noteDetail} />
             <br></br>
-
             <Btn notRedirect={true} link={`/editNote/${props.match.params.noteId}`} label="Edit" />
         </Container>
     )

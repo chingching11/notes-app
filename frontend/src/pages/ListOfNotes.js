@@ -31,8 +31,8 @@ const ListOfSubjects = (props) => {
 
     return(
         <Container>
-            <h1>{majorName}</h1>
-            <ListGroup>
+            <h1 className="Page-header">{majorName}</h1>
+            <ListGroup className="glass-container list-group">
                 {listNotes}
             </ListGroup>
             <br></br>
