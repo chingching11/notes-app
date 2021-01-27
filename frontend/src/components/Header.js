@@ -6,14 +6,13 @@ const Header = () => {
     return(
         <Navbar className="container navbar-custom">
             <Navbar.Brand href="/">
-            {/* <img
+            <img
                 alt=""
-                src="/logo.svg"
-                width="30"
-                height="30"
+                src="/nerd.png"
+                width="60"
+                height="60"
                 className="d-inline-block align-top"
-            />{' '} */}
-            Nerdy
+            />{' '}
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
