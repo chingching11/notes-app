@@ -11,7 +11,7 @@ const Home = () => {
         const getMajors = async () => {
             try {
                 const response = await axios (`http://localhost:8000/majors`)
-                setMajors(response.data)
+                    setMajors(response.data)           
             }catch (err) {
                 console.log(err);
             }
@@ -19,15 +19,17 @@ const Home = () => {
         getMajors()
     }, [])
 
-    const majorCards = majors.map((m) => {
-        if(m.imgUrl==='') m.imgUrl='logo192.png'
-        return (
-                <Col xs={12} sm={6} md={6} lg={4} xl={3}>
-                    <MajorCard major={m.majorName} imgUrl={m.imgUrl} id={m._id} />
-                </Col>           
-        )
-    })
-
+    let majorCards;
+    if(majors){
+        majorCards = majors.map((m) => {
+            if(m.imgUrl==='') m.imgUrl='logo192.png'
+            return (
+                    <Col xs={12} sm={6} md={6} lg={4} xl={3}>
+                        <MajorCard major={m.majorName} imgUrl={m.imgUrl} id={m._id} />
+                    </Col>           
+            )
+        })
+    }
     return(
         <Container>
             <div className="glass-container">

@@ -2,8 +2,9 @@ import React , { useState } from "react"
 import axios from "axios"
 import { Button, Container, Form } from "react-bootstrap";
 import InputGroup from "../components/InputGroup" 
+import RequireAuth from "../components/RequireAuth"
 
-const CreateSubject = () => {
+const CreateMajor = () => {
     const [majorName, setMajorName] = useState("")
     const [imgUrl, setImgUrl] = useState("")
     
@@ -34,4 +35,4 @@ const CreateSubject = () => {
     )
 }
 
-export default CreateSubject;
+export default RequireAuth(CreateMajor);

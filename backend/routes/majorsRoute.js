@@ -5,24 +5,24 @@ const auth = require("../authenticateToken")
 
 // get all lists of majors
 router.get("/", async (req, res) => {
-    const majors = await majorModel.find({});
+    const majors = await majorModel.find({}).sort({majorName: 1});
     try {
-        res.send(majors)
+        res.status(200).send(majors)
     } catch (err) {
         res.status(500).send(err)
     }
 })
 
 
-// get a specific major by id,showing all notes 
+// get a specific major by id,showing all folders 
 router.get("/:id", async (req, res) => {
     try {
         majorModel.findById({_id: req.params.id})
-            .populate("notes")
+            .populate( {path:'folders', options: {sort: {'folderName': 'asc'}} })
             .then((major) => {
-                res.send(major)
+                res.status(200).send(major)
             }).catch((err) => {
-                res.send(err)
+                res.status(500).send(err)
             })
     } catch (err){
         res.status(500).send(err)
@@ -35,10 +35,9 @@ router.post('/', auth, async (req, res) => {
         majorName: req.body.majorName,
         imgUrl: req.body.imgUrl
     })
-    // console.log(req.body.majorName)
     try {
         await major.save()
-        res.send(major)
+        res.status(200).send(major)
     } catch (err) {
         res.status(500).send(err)
     }
@@ -48,9 +47,8 @@ router.post('/', auth, async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
       const major = await majorModel.findByIdAndDelete(req.params.id)
-  
       if (!major) res.status(404).send("No major found")
-      res.status(200).send()
+      res.status(200).send('deleted')
     } catch (err) {
       res.status(500).send(err)
     }

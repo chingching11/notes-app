@@ -1,28 +1,28 @@
 const express = require("express")
 const router = express.Router();
 const noteModel = require('../models/NoteModel')
-const majorModel = require('../models/MajorModel')
+const folderModel = require('../models/FolderModel')
 const auth = require("../authenticateToken")
 
 // get all notes
 router.get('/', async (req, res) => {
     const notes = await noteModel.find({});
     try {
-        res.send(notes)
+        res.status(200).send(notes)
     } catch (err) {
         res.status(500).send(err)
     }
 })
 
 // get a specific note
-router.get('/:id', (req,res) => {
+router.get('/:id', async (req,res) => {
     try {
         noteModel.findById({_id: req.params.id})
             .populate("notes")
             .then((major) => {
-                res.send(major)
+                res.status(200).send(major)
             }).catch((err) => {
-                res.send(err)
+                res.status(500).send(err)
             })
     } catch (err){
         res.status(500).send(err)
@@ -35,18 +35,18 @@ router.post('/', auth, async (req, res) => {
         noteName: req.body.noteName,
         noteDetail: req.body.noteDetail,
     })
-    const major = req.body.majorName
+    const folder = req.body.folderName
     try {
         await note.save(). 
             then((note) => {
-                return majorModel.findOneAndUpdate(
-                    {majorName: major}, 
+                return folderModel.findOneAndUpdate(
+                    {folderName: folder}, 
                     { $push: {notes: note._id}} ,
                     { new: true, useFindAndModify:false }
-                ).then((major => {
-                    res.send(major)
+                ).then((folder => {
+                    res.status(200).send(folder)
                 })).catch((err) => {
-                    res.json(err);
+                    res.status(500).send(err);
                 });
             })
         
