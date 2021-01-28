@@ -32,7 +32,7 @@ const Home = () => {
     }
     return(
         <Container>
-            <div className="glass-container">
+            <div>
                 <h1 className="Page-header"> Majors </h1>
                 <Row className="text-center">
                     {majorCards}
