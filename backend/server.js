@@ -21,6 +21,7 @@ mongoose.connect(
 
 //Import routes
 const majorsRoute = require('./routes/majorsRoute')
+const foldersRoute = require('./routes/foldersRoute')
 const notesRoute = require('./routes/notesRoute')
 const register = require('./routes/register')
 const authRoute = require('./routes/authRoute')
@@ -28,7 +29,8 @@ const verifyRoute = require('./routes/verifyAdminRoute')
 
 
 // Routes
-app.use('/majors', majorsRoute);
+app.use('/majors', majorsRoute)
+app.use('/folders', foldersRoute)
 app.use('/notes', notesRoute)
 app.use('/register', register)
 app.use('/auth', authRoute)

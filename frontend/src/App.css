@@ -4,11 +4,18 @@ html {
 
 /* body background and font stying */
 body{
-  background: rgb(244,220,246);
-  background: radial-gradient(circle, rgba(244,220,246,1) 0%, rgba(125,160,240,1) 100%);
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
+}
+
+/* page header */
+.Page-header {
+  text-align: center;
+  padding-bottom: 2%;
+  font-family: 'Merriweather', serif;
 }
 
 .navbar-custom{
@@ -17,7 +24,7 @@ body{
 
 /* container styling */
 .container{
-  padding-top: 2%;
+  padding: 2% 0%;
 }
 
 /* size smaller than the container  */
@@ -38,47 +45,42 @@ body{
   -webkit-backdrop-filter: blur( 10.0px );
   border-radius: 10px; 
 }
+
+/* link styling */
+.link-text {
+  color: black;
+  text-decoration: none;
+}
+.link-text:hover{
+  text-decoration: none;
+}
+
 /********************************************/
 
-/* menu button */
+/* note-folder styling */
+.folder-box{
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 2%;
+}
+.folder-box:hover {
+  transform: scale(0.9);  
+}
+
+/********************************************/
+
+/* note-list styling */
 .menu {
   float: right;
 }
-
-/* page header */
-.Page-header {
-  text-align: center;
-  padding-bottom: 2%;
-  font-family: 'Merriweather', serif;
-  color:#4c6295;
-}
-
-/* list */
 .list-group{
   padding: 5% 10%
 }
-
-/* form styling, all text align left */
-.form {
-  text-align: left;
-  padding: 2%;
+.list-group-item{
+  margin-bottom: 2%;
+  border-radius: 10px;
+  cursor: pointer;
 }
-/********************************************/
-
-/* editor styling */
-.wrapper-class {
-  padding: 1rem;
-  border: 1px solid #ccc;
-}
-.editor-class {
-  background-color:rgb(247, 240, 240);
-  padding: 1rem;
-  border: 1px solid #ccc;
-}
-.toolbar-class {
-  border: 1px solid #ccc;
-}
-
 /********************************************/
 
 /* note body styling */
@@ -101,6 +103,7 @@ body{
   margin-bottom: 2%;
   box-shadow: 0 4px 8px 0 rgba(135, 133, 133, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .major-label-box{
   padding: 5% 0%;
   border-radius: 10px;
@@ -108,6 +111,45 @@ body{
 }
 /********************************************/
 
+/* button for all pages*/
+.btn-info {
+  background-color: #7da0f0;
+  color: white;
+}
+.btn-info:hover {
+  background-color: #7da0f0;
+}
+.btn-outline-info {
+  border-color: #698fe6;
+  color: #698fe6;
+}
+.btn-outline-info:hover {
+  background-color: #7da0f0;
+  color: white;
+}
+/*******************/
+
+/* form styling, all text align left */
+.form {
+  text-align: left;
+  padding: 2%;
+}
+
+/********************************************/
+
+/* editor styling */
+.wrapper-class {
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+.editor-class {
+  background-color:rgb(247, 240, 240);
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+.toolbar-class {
+  border: 1px solid #ccc;
+}
 
   
   

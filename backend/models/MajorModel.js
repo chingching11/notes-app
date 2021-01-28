@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator');
-const Note = require('./NoteModel')
+const Folder = require('./FolderModel')
 
 const MajorSchema = new mongoose.Schema({
     majorName: {
@@ -13,10 +13,10 @@ const MajorSchema = new mongoose.Schema({
     imgUrl: {
         type: String
     },
-    notes: [
+    folders: [
         {
             type: mongoose.Schema.Types.ObjectId, 
-            ref: Note
+            ref: Folder
         }
     ]
 })
