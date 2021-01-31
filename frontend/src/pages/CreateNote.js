@@ -7,6 +7,7 @@ import InputGroup from "../components/InputGroup"
 import SelectOption from "../components/SelectOption"
 import RequireAuth from "../components/RequireAuth"
 import { useHistory } from 'react-router-dom';
+import DOMPurify from 'dompurify';
 
 const CreateNote = () => {
     const history = useHistory()
@@ -43,7 +44,8 @@ const CreateNote = () => {
     }
     const sendData = () => {
         const url = "http://localhost:8000/notes" 
-        const userInputData = {folderName: folderName, noteName: noteName, noteDetail: noteDetail}
+        const cleanNoteDetail = DOMPurify.sanitize(noteDetail)
+        const userInputData = {folderName: folderName, noteName: noteName, noteDetail: cleanNoteDetail}
         axios.post(url, userInputData, { withCredentials: true })  // post request to api
                 .then(res => {
                     console.log(res)
