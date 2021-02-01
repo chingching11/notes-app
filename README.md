@@ -6,14 +6,6 @@ There are 3 main features: majors, folders, notes; and each supports create, edi
 
 ---
 
-## Snapshots
-<img src="./snapshots/home.png" width="300" height="200"> 
-<img src="./snapshots/folders.png" width="300" height="200"> 
-<img src="./snapshots/notelist.png" width="300" height="200"> 
-<img src="./snapshots/note.png" width="300" height="200"> 
-
----
-
 ## Keypoints of Implementaion
 
 ### Client Side (React)
