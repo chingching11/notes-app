@@ -23,7 +23,7 @@ There are 3 main features: majors, folders, notes; and each supports create, edi
         - sanitize before storing the data and before displaying on the page 
     - [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html) (React's innerHTML version)
 - UI Styling
-    - [react-bootstrap](https://www.npmjs.com/package/axios)
+    - [react-bootstrap](https://react-bootstrap.github.io/)
     - [vanilla bootstrap](https://getbootstrap.com/) 
     - [material-ui](https://material-ui.com/) 
     - [favicon.io](https://favicon.io/favicon-generator/) 
